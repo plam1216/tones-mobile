@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, SafeAreaView, SectionList, FlatList } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, SectionList, FlatList, Button } from 'react-native'
 import React from 'react'
 
 import Album from '../Album/Album';
@@ -10,24 +10,84 @@ const SECTIONS = [
         data: [
             {
                 key: '1',
-                text: 'Item text 1',
+                name: 'Vacancy I',
+                description: 'Some Instrumentals',
                 uri: 'https://imgur.com/do32uRl.png',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
             {
                 key: '2',
-                text: 'Item text 2',
+                name: 'Vacancy II',
+                description: 'Some Instrumentals',
                 uri: 'https://imgur.com/do32uRl.png',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
 
             {
                 key: '3',
-                text: 'Item text 3',
+                name: 'Vacancy III',
+                description: 'Some Instrumentals',
                 uri: 'https://imgur.com/do32uRl.png',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
             {
                 key: '4',
-                text: 'Item text 4',
+                name: 'Vacancy IV',
+                description: 'Some Instrumentals',
                 uri: 'https://imgur.com/do32uRl.png',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
         ],
     },
@@ -37,19 +97,61 @@ const SECTIONS = [
         data: [
             {
                 key: '1',
-                text: 'Item text 1',
+                name: 'Item name 1',
                 uri: 'https://picsum.photos/id/1011/200',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
             {
                 key: '2',
-                text: 'Item text 2',
+                name: 'Item name 2',
                 uri: 'https://picsum.photos/id/1012/200',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
 
             {
                 key: '3',
-                text: 'Item text 3',
+                name: 'Item name 3',
                 uri: 'https://picsum.photos/id/1013/200',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
         ],
     },
@@ -58,30 +160,47 @@ const SECTIONS = [
         data: [
             {
                 key: '1',
-                text: 'Item text 1',
+                name: 'Item name 1',
                 uri: 'https://picsum.photos/id/1020/200',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
             {
                 key: '2',
-                text: 'Item text 2',
+                name: 'Item name 2',
                 uri: 'https://picsum.photos/id/1024/200',
-            },
-
-            {
-                key: '3',
-                text: 'Item text 3',
-                uri: 'https://picsum.photos/id/1027/200',
-            },
-            {
-                key: '4',
-                text: 'Item text 4',
-                uri: 'https://picsum.photos/id/1035/200',
+                tracklist: [
+                    {
+                        name: 'Song 1',
+                    },
+                    {
+                        name: 'Song 2',
+                    },
+                    {
+                        name: 'Song 3',
+                    },
+                    {
+                        name: 'Song 4 ',
+                    },
+                ]
             },
         ],
     },
 ];
 
-const AlbumSection = () => {
+const AlbumSection = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <SectionList
@@ -96,7 +215,12 @@ const AlbumSection = () => {
                             <FlatList
                                 horizontal
                                 data={section.data}
-                                renderItem={({ item }) => <Album item={item} />}
+                                renderItem={({ item }) =>
+                                    <Album
+                                        item={item}
+                                        navigation={navigation}
+                                    />
+                                }
                                 showsHorizontalScrollIndicator={false}
                             />
                         }

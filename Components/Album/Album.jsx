@@ -1,18 +1,28 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 
 
-const Album = ({ item }) => {
+const Album = ({ item, navigation }) => {
     return (
         <View style={styles.item}>
-            <Image
-                source={{
-                    uri: item.uri,
-                }}
-                style={styles.itemPhoto}
-                resizeMode="cover"
-            />
-            <Text style={styles.itemText}>{item.text}</Text>
+            <TouchableWithoutFeedback
+                onPress={() => {
+                    navigation.navigate('SelectedAlbum', { 
+                        name: item.name, 
+                        description: item.description,
+                        uri: item.uri,
+                        tracklist: item.tracklist,
+                    })
+                }} >
+                <Image
+                    source={{
+                        uri: item.uri,
+                    }}
+                    style={styles.itemPhoto}
+                    resizeMode="cover"
+                />
+            </TouchableWithoutFeedback>
+            <Text style={styles.itemText}>{item.name}</Text>
         </View>
     );
 };
