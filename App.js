@@ -1,29 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-import AlbumSection from './Components/AlbumSection/AlbumSection';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import CatalogScreen from './Screens/CatalogScreen/CatalogScreen';
+import AlbumScreen from './Screens/AlbumScreen/AlbumScreen';
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Tones</Text>
-      <AlbumSection/>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Catalog"
+          component={CatalogScreen}
+        />
+        <Stack.Screen
+          name="SelectedAlbum"
+          component={AlbumScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    fontSize: 36,
-    fontWeight: 700,
-    marginTop: 40,
-  },
+
 });
