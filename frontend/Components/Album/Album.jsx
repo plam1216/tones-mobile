@@ -7,7 +7,7 @@ const Album = ({ item, navigation }) => {
         <View style={styles.item}>
             <TouchableWithoutFeedback
                 onPress={() => {
-                    navigation.navigate('SelectedAlbum', { 
+                    navigation.navigate('AlbumScreen', { 
                         name: item.name, 
                         description: item.description,
                         uri: item.uri,
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         height: 200,
     },
     itemText: {
-        color: 'rgba(255, 255, 255, 1)',
+        fontWeight: 'bold',
         marginTop: 5,
     },
 });

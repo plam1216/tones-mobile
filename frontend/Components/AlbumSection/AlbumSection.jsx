@@ -11,14 +11,14 @@ const SECTIONS = [
             {
                 key: '1',
                 name: 'Vacancy I',
-                description: 'Some Instrumentals',
+                description: 'Hip-Hop and Drill Instrumentals From Scratch',
                 uri: 'https://imgur.com/do32uRl.png',
                 tracklist: [
                     {
-                        name: 'Song 1',
+                        name: 'Currents',
                     },
                     {
-                        name: 'Song 2',
+                        name: 'Vory',
                     },
                     {
                         name: 'Song 3',

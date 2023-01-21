@@ -17,7 +17,7 @@ export default function App() {
           component={CatalogScreen}
         />
         <Stack.Screen
-          name="SelectedAlbum"
+          name="AlbumScreen"
           component={AlbumScreen}
         />
       </Stack.Navigator>

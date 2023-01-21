@@ -32,18 +32,24 @@ const AlbumScreen = ({ route }) => {
   // }
 
   return (
-    <View>
-      <Text>AlbumScreen</Text>
+    <View style={styles.container}>
       <Image
         source={{
           uri: selectedAlbum.uri,
         }}
-        style={styles.itemPhoto}
+        style={styles.albumArt}
         resizeMode="cover"
       />
-      <Text>{selectedAlbum.name}</Text>
+      <Text style={styles.albumName}>{selectedAlbum.name}</Text>
       <Text>{selectedAlbum.description}</Text>
-      {selectedAlbum.tracklist.map(song => <Text key={song.name}>Name: {song.name}</Text>)}
+      {selectedAlbum.tracklist.map(song =>
+        <Text
+          key={song.name}
+          style={styles.tracklist}>
+          
+          {song.name}
+
+        </Text>)}
     </View>
     // <View>
     //   {selectedAlbum.tracklist ? loaded() : loading()}
@@ -53,13 +59,24 @@ const AlbumScreen = ({ route }) => {
 
 
 const styles = StyleSheet.create({
-  item: {
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    paddingTop: 50,
+    // justifyContent: 'center',
+  },
+  albumArt: {
+    width: 250,
+    height: 250,
+  },
+  albumName: {
     margin: 10,
+    fontWeight: 'bold',
+    fontSize: '1.6rem',
   },
-  itemPhoto: {
-    width: 200,
-    height: 200,
-  },
+  tracklist: {
+  }
 });
 
 export default AlbumScreen
